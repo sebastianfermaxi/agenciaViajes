@@ -7,7 +7,12 @@ const db = new Sequelize(process.env.DB_NAME,process.env.USER_DB,process.env.PAS
     host: process.env.HOST_DB,
     port:process.env.PORT_DB,
     dialect:'postgres',
-    ssl: true,
+    dialectOptions: {
+        ssl: {
+            require: true, // This will help you. But you will see nwe error
+            rejectUnauthorized: false // This line will fix new error
+        }
+    },
     define:{
         timestamps:false
     },
