@@ -7,6 +7,8 @@ dotenv.config();
 
 const app = express();
 
+app.set("trust proxy", 1);
+
 db.authenticate()
     .then(()=>{
         console.log('DB conectada')
